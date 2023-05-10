@@ -8,6 +8,7 @@ function contaChars(){
     var valorCaixa = document.getElementById("caixaSecreta").value;
     var contador = document.getElementById("chars_digitados");
     var textoAdd;
+    var cor = "white";
 
     valorSim = document.getElementById("sim");
     aviso = document.getElementById("aviso");
@@ -40,34 +41,48 @@ function contaChars(){
             textoAdd = "Não há caracteres digitados.";
     
         }
+        else if(tamString == 1) {
+    
+            textoAdd = "Há "+ tamString +" caractere digitado.";
+    
+        }
         else {
-    
+
             textoAdd = "Há "+ tamString +" caracteres digitados.";
-    
+
         }
     
     }
     else {
 
-        if(limite - tamString > 0){
+        if(limite - tamString > 0 && limite - tamString != 1){
 
             textoAdd = "Você ainda pode digitar "+ (limite - tamString) +" caracteres.";  
+
+        }
+        else if(limite - tamString == 1){
+
+            textoAdd = "Você ainda pode digitar "+ (limite - tamString) +" caractere.";
 
         }
         else if(limite - tamString == 0){
 
             textoAdd = "Você não pode mais digitar caracteres.";
+            cor = "red"
 
         }
         else {
 
-            textoAdd = "Você passou "+ (tamString - limite) +" caracteres do limite permitido."; 
-            
+            textoAdd = "Você passou "+ (tamString - limite) +" caracteres do limite permitido.";
+            cor = "red";
+
         }
 
     }
 
     contador.innerHTML = textoAdd;
+    contador.style.color = cor;
+    cor = "white";
 
 }
 
