@@ -42,10 +42,8 @@ function temLimite()
     {
         caixa.style.display = "inline";
         
-        if(caixa.value == "")
-
-            txt_aviso.style.display = "block";
-        else
+        caixa.value == "" ?
+            txt_aviso.style.display = "block" :
             contaChars();
     }
     else if (valorNao)
