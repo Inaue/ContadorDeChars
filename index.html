@@ -21,13 +21,13 @@
         <section>
             <label>
                 Limite:
-                <input type="radio" name="limite" id="sim" onclick="temLimite()">Sim</input>
-                <input type="number" style="display:none" id="caixaSecreta" oninput="contaChars()"></input>
-                <input type="radio" name="limite" id="nao" checked="true" onclick="temLimite()">Não</input>
+                <input type="radio" name="limite" id="radio_sim" onclick="temLimite()">Sim</input>
+                <input type="number" style="display:none" id="caixa_limite" oninput="contaChars()"></input>
+                <input type="radio" name="limite" id="radio_nao" checked="true" onclick="temLimite()">Não</input>
             </label>
         </section>
-        <section id="mostradores">
-            <p id="aviso" style="display:none">Não há limite digitado, usando modo sem limite.</p>
+        <section id="avisos">
+            <p id="txt_aviso" style="display:none">Não há limite digitado, usando modo sem limite.</p>
             <p id="chars_digitados">Não há caracteres digitados.</p>
         </section>
     </main>
