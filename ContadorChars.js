@@ -4,86 +4,37 @@ var aviso;
 
 function contaChars(){
 
-    var tamString = document.getElementById("caixa_de_texto").value.length;
-    var valorCaixa = document.getElementById("caixaSecreta").value;
-    var contador = document.getElementById("chars_digitados");
+    var tamString   = document.getElementById("caixa_de_texto").value.length;
+    var valorCaixa  = document.getElementById("caixaSecreta").value;
+    var contador    = document.getElementById("chars_digitados");
     var textoAdd;
-    var cor = "white";
+    var cor;
+    var c_digitar;
 
-    valorSim = document.getElementById("sim");
-    aviso = document.getElementById("aviso");
-
-    if(valorSim.checked){
-
-        limite = valorCaixa;
-
-        if(limite != ""){
-
-            aviso.style.display = "none";
-
-        } else {
-
-            aviso.style.display = "block";
-
-        }
-
-    }
-    else {
-
-        limite = "";
-
-    }
+    valorSim        = document.getElementById("sim").checked;
+    aviso           = document.getElementById("aviso");
+    limite          = (valorSim) ? valorCaixa : '';
+    c_digitar       = (limite == '') ? 0 : limite - tamString;
     
-    if (limite == ""){
+    cor =   (limite == '') ?    'white' :
+            (c_digitar > 0) ? 'white' : 'red';
 
-        if(tamString == 0){
+    textoAdd    =   (limite == '') ?
+                        (tamString == 0) ?  "Não há caracteres digitados." :
+                        (tamString == 1) ?  "Há " + tamString + " caractere digitado."
+                        : "Há " + tamString + " caracteres digitados."
+                    :
+                    (c_digitar == 0) ?  "Você não pode mais digitar caracteres." :
+                    (c_digitar == 1) ?  "Você ainda pode digitar " + c_digitar + " caractere." :
+                    (c_digitar > 0) ?   "Você ainda pode digitar " + c_digitar + " caracteres."
+                    : "Você passou " + (-c_digitar) + " caracteres do limite permitido.";
 
-            textoAdd = "Não há caracteres digitados.";
-    
-        }
-        else if(tamString == 1) {
-    
-            textoAdd = "Há "+ tamString +" caractere digitado.";
-    
-        }
-        else {
+    aviso.style.display =   (valorSim) ?
+                                (limite == '') ?    'block' : 'none'
+                            : aviso.style.display;
 
-            textoAdd = "Há "+ tamString +" caracteres digitados.";
-
-        }
-    
-    }
-    else {
-
-        if(limite - tamString > 0 && limite - tamString != 1){
-
-            textoAdd = "Você ainda pode digitar "+ (limite - tamString) +" caracteres.";  
-
-        }
-        else if(limite - tamString == 1){
-
-            textoAdd = "Você ainda pode digitar "+ (limite - tamString) +" caractere.";
-
-        }
-        else if(limite - tamString == 0){
-
-            textoAdd = "Você não pode mais digitar caracteres.";
-            cor = "red"
-
-        }
-        else {
-
-            textoAdd = "Você passou "+ (tamString - limite) +" caracteres do limite permitido.";
-            cor = "red";
-
-        }
-
-    }
-
-    contador.innerHTML = textoAdd;
-    contador.style.color = cor;
-    cor = "white";
-
+    contador.innerHTML      = textoAdd;
+    contador.style.color    = cor;
 }
 
 function temLimite(){
