@@ -8,16 +8,17 @@
     <title>Contador Chars</title>
 </head>
 <body>
-    
     <main>
         <script src="ContadorChars.js"></script>
         
         <header>
             <h1>Contador de Caracteres</h1>
         </header>
+
         <section>
             <textarea id="caixa_de_texto" oninput="contaChars()"></textarea>
         </section>
+
         <section>
             <label>
                 Limite:
@@ -26,11 +27,11 @@
                 <input type="radio" name="limite" id="radio_nao" checked="true" onclick="temLimite()">Não</input>
             </label>
         </section>
+
         <section id="avisos">
             <p id="txt_aviso" style="display:none">Não há limite digitado, usando modo sem limite.</p>
             <p id="chars_digitados">Não há caracteres digitados.</p>
         </section>
     </main>
-
 </body>
 </html>
