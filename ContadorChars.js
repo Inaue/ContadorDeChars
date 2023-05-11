@@ -1,20 +1,14 @@
-var limite;
-var valorSim;
-var txt_aviso;
-
-function contaChars(){
-
+function contaChars()
+{
     var tamString   = document.getElementById("caixa_de_texto").value.length;
     var valorCaixa  = document.getElementById("caixa_limite").value;
+    var valorSim    = document.getElementById("radio_sim").checked;
     var contador    = document.getElementById("chars_digitados");
+    var txt_aviso   = document.getElementById("txt_aviso");
+    var limite      = (valorSim) ? valorCaixa : '';
+    var c_digitar   = (limite == '') ? 0 : limite - tamString;
     var textoAdd;
     var cor;
-    var c_digitar;
-
-    valorSim        = document.getElementById("radio_sim").checked;
-    txt_aviso       = document.getElementById("txt_aviso");
-    limite          = (valorSim) ? valorCaixa : '';
-    c_digitar       = (limite == '') ? 0 : limite - tamString;
     
     cor =   (limite == '') ?    'white' :
             (c_digitar > 0) ?   'white' : 'red';
@@ -39,11 +33,10 @@ function contaChars(){
 
 function temLimite()
 {
+    var valorSim    = document.getElementById("radio_sim").checked;
     var valorNao    = document.getElementById("radio_nao").checked;
     var caixa       = document.getElementById("caixa_limite");
-    
-    valorSim        = document.getElementById("radio_sim").checked;
-    txt_aviso       = document.getElementById("txt_aviso");
+    var txt_aviso   = document.getElementById("txt_aviso");
 
     if (valorSim)
     {
