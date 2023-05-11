@@ -17,7 +17,7 @@ function contaChars(){
     c_digitar       = (limite == '') ? 0 : limite - tamString;
     
     cor =   (limite == '') ?    'white' :
-            (c_digitar > 0) ? 'white' : 'red';
+            (c_digitar > 0) ?   'white' : 'red';
 
     textoAdd    =   (limite == '') ?
                         (tamString == 0) ?  "Não há caracteres digitados." :
@@ -37,36 +37,28 @@ function contaChars(){
     contador.style.color    = cor;
 }
 
-function temLimite(){
-
-    var valorNao = document.getElementById("radio_nao");
-    var caixa = document.getElementById("caixa_limite");
+function temLimite()
+{
+    var valorNao    = document.getElementById("radio_nao").checked;
+    var caixa       = document.getElementById("caixa_limite");
     
-    valorSim = document.getElementById("radio_sim");
-    txt_aviso = document.getElementById("txt_aviso");
+    valorSim        = document.getElementById("radio_sim").checked;
+    txt_aviso       = document.getElementById("txt_aviso");
 
-    if (valorSim.checked){
-
+    if (valorSim)
+    {
         caixa.style.display = "inline";
         
-        if(caixa.value == ""){
+        if(caixa.value == "")
 
             txt_aviso.style.display = "block";
-
-        }
-        else {
-            
+        else
             contaChars();
-
-        }
-
     }
-    else if (valorNao.checked){
-
-        caixa.style.display = "none";
+    else if (valorNao)
+    {
+        caixa.style.display     = "none";
         txt_aviso.style.display = "none";
         contaChars();
-
     }
-
 }
