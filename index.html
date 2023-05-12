@@ -9,29 +9,32 @@
 </head>
 <body>
     <main>
-        <script src="ContadorChars.js"></script>
-        
-        <header>
-            <h1>Contador de Caracteres</h1>
-        </header>
+        <div id="Tweet">
+            <script src="ContadorChars.js"></script>
+            
+            <header>
+                <img id="logo" src="Imagens/twitter-logo.png">
+                <h1>Contador de Caracteres</h1>
+            </header>
 
-        <section>
-            <textarea id="caixa_de_texto" oninput="contaChars()"></textarea>
-        </section>
+            <section>
+                <textarea id="caixa_de_texto" oninput="contaChars('caixa_de_texto', 'caixa_limite', 'radio_sim', 'chars_digitados');display_txt('txt_aviso', 'caixa_de_texto', 'radio_sim')"></textarea>
+            </section>
 
-        <section>
-            <label>
-                Limite:
-                <input type="radio" name="limite" id="radio_sim" onclick="temLimite()">Sim</input>
-                <input type="number" style="display:none" id="caixa_limite" oninput="contaChars()"></input>
-                <input type="radio" name="limite" id="radio_nao" checked="true" onclick="temLimite()">Não</input>
-            </label>
-        </section>
+            <section>
+                <label>
+                    Limite:
+                    <input type="radio" name="limite" id="radio_sim" onclick="temLimite('caixa_de_texto', 'caixa_limite', 'radio_sim', 'chars_digitados');display_txt('txt_aviso', 'caixa_de_texto', 'radio_sim')">Sim</input>
+                    <input type="number" style="display:none" id="caixa_limite" oninput="contaChars('caixa_de_texto', 'caixa_limite', 'radio_sim', 'chars_digitados');display_txt('txt_aviso', 'caixa_de_texto', 'radio_sim')"></input>
+                    <input type="radio" name="limite" id="radio_nao" checked="true" onclick="temLimite('caixa_de_texto', 'caixa_limite', 'radio_sim', 'chars_digitados');display_txt('txt_aviso', 'caixa_de_texto', 'radio_sim')">Não</input>
+                </label>
+            </section>
 
-        <section id="avisos">
-            <p id="txt_aviso" style="display:none">Não há limite digitado, usando modo sem limite.</p>
-            <p id="chars_digitados">Não há caracteres digitados.</p>
-        </section>
+            <section id="avisos">
+                <p id="txt_aviso" style="display:none">Não há limite digitado, usando modo sem limite.</p>
+                <p id="chars_digitados">Não há caracteres digitados.</p>
+            </section>
+        </div>
     </main>
 </body>
 </html>
